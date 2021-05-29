@@ -9,4 +9,5 @@ import hakandizdar.hrms.entities.concretes.JobPosition;
 public interface JobPositionService {
 	DataResult<List<JobPosition>> getAll();
 	Result add(JobPosition jobPosition);
+	DataResult<JobPosition> getByName(String name);
 }

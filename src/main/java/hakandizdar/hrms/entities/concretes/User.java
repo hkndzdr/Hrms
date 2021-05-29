@@ -1,5 +1,8 @@
 package hakandizdar.hrms.entities.concretes;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,9 +35,28 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="job_position_id")
-	private int jobPositionId;
-
+	/*@OneToOne()
+	@JoinColumn(name = "employer_id")
+	private Employer employer;
 	
+	@OneToOne()
+	@JoinColumn(name = "job_seeker_id")
+	private JobSeeker jobSeeker;
+	
+	@OneToOne()
+	@JoinColumn(name = "hrms_personel_id")
+	private HrmsPersonel hrmsPersonel;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private Employer employer;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private JobSeeker jobSeeker;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private HrmsPersonel hrmsPersonel;*/
 	
 }

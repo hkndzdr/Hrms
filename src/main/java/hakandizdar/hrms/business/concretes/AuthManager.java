@@ -1,6 +1,7 @@
 package hakandizdar.hrms.business.concretes;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import hakandizdar.hrms.business.abstracts.AuthService;
 import hakandizdar.hrms.business.abstracts.EmployerService;
@@ -12,6 +13,7 @@ import hakandizdar.hrms.core.utilities.results.Result;
 import hakandizdar.hrms.core.utilities.results.SuccessResult;
 import hakandizdar.hrms.entities.concretes.Employer;
 import hakandizdar.hrms.entities.concretes.JobSeeker;
+
 
 public class AuthManager implements AuthService {
 	
@@ -106,7 +108,7 @@ public class AuthManager implements AuthService {
 	}
 	
 	private boolean checkIfNationalIdExist(String nationalIdentity) {
-		if (jobSeekerService.findJobSeekerByNationalIdentity(nationalIdentity).getData() == null) {	
+		if (jobSeekerService.getByNationalIdentity(nationalIdentity).getData() == null) {	
 			return true;
 		}
 		return false;

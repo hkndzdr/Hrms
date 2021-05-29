@@ -9,5 +9,5 @@ import hakandizdar.hrms.entities.concretes.JobSeeker;
 public interface JobSeekerService {
 	DataResult<List<JobSeeker>> getAll();
 	Result add(JobSeeker jobSeeker);
-	DataResult<JobSeeker> findJobSeekerByNationalIdentity(String nationalIdentity);
+	DataResult<JobSeeker> getByNationalIdentity(String nationalIdentity);
 }

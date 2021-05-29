@@ -31,12 +31,12 @@ public class JobSeekerManager implements JobSeekerService{
 	@Override
 	public Result add(JobSeeker jobSeeker) {
 		this.jobSeekerDao.save(jobSeeker);
-		return new SuccessResult("İş arayanlar eklendi");
+		return new SuccessResult("İş arayan eklendi");
 	}
 
 	@Override
-	public DataResult<JobSeeker> findJobSeekerByNationalIdentity(String nationality) {
-		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.findJobSeekerByNationality(nationality));
+	public DataResult<JobSeeker> getByNationalIdentity(String nationality) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByNationality(nationality));
 	}
 	
 	

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import hakandizdar.hrms.business.abstracts.JobPositionService;
 import hakandizdar.hrms.core.utilities.results.DataResult;
+import hakandizdar.hrms.core.utilities.results.ErrorResult;
 import hakandizdar.hrms.core.utilities.results.Result;
 import hakandizdar.hrms.core.utilities.results.SuccessDataResult;
 import hakandizdar.hrms.core.utilities.results.SuccessResult;
@@ -33,8 +34,17 @@ public class JobPositionManager implements JobPositionService{
 
 	@Override
 	public Result add(JobPosition jobPosition) {
-		this.jobPositionDao.save(jobPosition);
-		return new SuccessResult("İş pozisyonları eklendi");
+	    if(getByName(jobPosition.getName()).getData() != null){
+            return new ErrorResult("Girdiğiniz iş poziyonu sistemde mevcut");
+        }
+        this.jobPositionDao.save(jobPosition);
+        return new SuccessResult("İş pozisyonu eklendi");
+	}
+
+
+	@Override
+	public DataResult<JobPosition> getByName(String name) {
+		 return new SuccessDataResult<>(this.jobPositionDao.getByName(name));
 	}
 	
 }

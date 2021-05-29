@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import hakandizdar.hrms.entities.concretes.User;
 
-public interface userDao extends JpaRepository<User, Integer>{
-	User findUserByEmail(String email);
+public interface UserDao extends JpaRepository<User, Integer>{
+	User getByEmail(String email);
 }
