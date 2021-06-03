@@ -1,8 +1,6 @@
 package hakandizdar.hrms.business.concretes;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import hakandizdar.hrms.business.abstracts.AuthService;
 import hakandizdar.hrms.business.abstracts.EmployerService;
 import hakandizdar.hrms.business.abstracts.JobSeekerService;
