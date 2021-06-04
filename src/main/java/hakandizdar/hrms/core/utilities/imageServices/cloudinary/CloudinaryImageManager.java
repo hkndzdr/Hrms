@@ -22,18 +22,18 @@ public class CloudinaryImageManager implements CloudinaryImageService{
 	private Cloudinary cloudinary;
 	
 	@Autowired
-	public CloudinaryImageManager() {}
-	
-	public CloudinaryImageManager(Cloudinary cloudinary) {
-		this.cloudinary = cloudinary;
+	public CloudinaryImageManager() {
+		this.cloudinary = new Cloudinary(ObjectUtils.asMap("cloud_name", "katre",
+				"api_key", "872793125567218", "api_secret","Hq3pF6A-Dh879cUbGrN05KjjmNA"));
 	}
-
-
-	@SuppressWarnings("rawtypes")
+	
+	@SuppressWarnings({ "rawtypes" })
 	@Override
 	public DataResult<Map> upload(MultipartFile file) {
+		
 		Map uploadResult = null;
 		 try {
+			 	
 	            uploadResult = cloudinary.uploader().upload(file.getBytes(),ObjectUtils.emptyMap());
 	            return new SuccessDataResult<Map>(uploadResult,"Resim eklendi");
 	        } catch (IOException e) {

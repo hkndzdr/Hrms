@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -11,13 +13,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-
+@Data
 @Entity
 @Table(name="users")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,28 +31,5 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	/*@OneToOne()
-	@JoinColumn(name = "employer_id")
-	private Employer employer;
-	
-	@OneToOne()
-	@JoinColumn(name = "job_seeker_id")
-	private JobSeeker jobSeeker;
-	
-	@OneToOne()
-	@JoinColumn(name = "hrms_personel_id")
-	private HrmsPersonel hrmsPersonel;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private Employer employer;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private JobSeeker jobSeeker;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private HrmsPersonel hrmsPersonel;*/
 	
 }

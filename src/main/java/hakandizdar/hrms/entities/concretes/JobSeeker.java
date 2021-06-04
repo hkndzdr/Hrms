@@ -18,8 +18,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="job_seekers")
 @Data
-@EqualsAndHashCode(callSuper = false)
 @PrimaryKeyJoinColumn(name = "job_seeker_id")
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class JobSeeker extends User{
@@ -45,6 +45,9 @@ public class JobSeeker extends User{
 	private List<JobExperience> jobExperience;
 	
 	@OneToMany(mappedBy = "jobSeeker")
+	private List<Image> images;
+	
+	@OneToMany(mappedBy = "jobSeeker")
 	private List<Language> languages;
 	
 	@OneToMany(mappedBy = "jobSeeker")
@@ -52,5 +55,8 @@ public class JobSeeker extends User{
 	
 	@OneToMany(mappedBy = "jobSeeker")
 	private List<JobSeekerSkill> jobSeekerSkills;
+	
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<CoverLetter> coverLetters;
 	
 }

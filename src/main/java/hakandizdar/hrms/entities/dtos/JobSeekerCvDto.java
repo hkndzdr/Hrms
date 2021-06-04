@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CvDto {
+public class JobSeekerCvDto {
 	private JobSeeker jobSeeker;
 	private List<Education> educations;
 	private List<JobExperience> jobExperiences;

@@ -2,11 +2,9 @@ package hakandizdar.hrms.entities.concretes;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -21,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="employers")
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @PrimaryKeyJoinColumn(name = "employer_id")
 @AllArgsConstructor
 @NoArgsConstructor
