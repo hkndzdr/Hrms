@@ -3,6 +3,7 @@ package hakandizdar.hrms.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import hakandizdar.hrms.entities.concretes.JobAdvert;
 
 @RestController
 @RequestMapping("/api/jobadverts")
+@CrossOrigin
 public class JobAdvertsController {
 	private JobAdvertService jobAdvertService;
 
@@ -40,9 +42,9 @@ public class JobAdvertsController {
 		return this.jobAdvertService.getAllActiveAdvertsByReleasedDateByAsc();
 	}
 	
-	@GetMapping("/getAllActiveAdvertsByReleasedDateByDsc")
-	public DataResult<List<JobAdvert>> getAllActiveAdvertsByReleasedDateByDsc() {
-		return this.jobAdvertService.getAllActiveAdvertsByReleasedDateByAsc();
+	@GetMapping("/getAllActiveAdvertsByReleasedDateByDesc")
+	public DataResult<List<JobAdvert>> getAllActiveAdvertsByReleasedDateByDesc() {
+		return this.jobAdvertService.getAllActiveAdvertsByReleasedDateByDesc();
 	}
 	
 	@GetMapping("/getAllActiveAdvertsByEmployer")

@@ -24,16 +24,15 @@ public class CityManager implements CityService{
 	}
 
 	@Override
-	public DataResult<List<City>> getAll() {
-		return new SuccessDataResult<List<City>>
-		(cityDao.findAll(),"Tüm şehirler listelendi");
-	}
-
-	@Override
 	public Result add(City city) {
 		this.cityDao.save(city);
 		return new SuccessResult("Şehir eklendi");
 	}
-
+	
+	@Override
+	public DataResult<List<City>> getAll() {
+		return new SuccessDataResult<List<City>>
+		(cityDao.findAll(),"Tüm şehirler listelendi");
+	}
 
 }

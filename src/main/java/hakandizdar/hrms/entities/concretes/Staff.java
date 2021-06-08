@@ -11,13 +11,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="hrms_personels")
-@PrimaryKeyJoinColumn(name = "hrms_personel_id")
+@Table(name="staffs")
+@PrimaryKeyJoinColumn(name = "staff_id")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class HrmsPersonel extends User{
+public class Staff extends User{
 	/*private int hrmsPersonelId;*/
 	
 	@Column(name="first_name")
