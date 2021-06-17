@@ -9,6 +9,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -39,24 +41,31 @@ public class JobSeeker extends User{
 	private LocalDate dateOfBirth;
 	
 	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
 	private List<Education> educations;
 	
 	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
 	private List<JobExperience> jobExperience;
 	
 	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
 	private List<Image> images;
 	
 	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
 	private List<Language> languages;
 	
 	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
 	private List<JobSeekerSocialPlatform> jobSeekerSocialPlatforms;
 	
 	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
 	private List<JobSeekerSkill> jobSeekerSkills;
 	
 	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
 	private List<CoverLetter> coverLetters;
 	
 }

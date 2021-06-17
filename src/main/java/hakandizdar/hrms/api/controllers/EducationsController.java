@@ -34,12 +34,12 @@ private EducationService educationService;
 		return this.educationService.add(education);
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<Education>> getAll(){	
 		return this.educationService.getAll();
 	}
 	
-	@GetMapping("/getallByJobSeekerIdOrderByGraduationYearDesc")
+	@GetMapping("/getAllByJobSeekerIdOrderByGraduationYearDesc")
 	public DataResult<List<Education>> getAllByJobSeekerIdOrderByGraduationYearDesc(@RequestParam int id){	
 		return this.educationService.getAllByJobSeekerIdOrderByGraduationYearDesc(id);
 	}

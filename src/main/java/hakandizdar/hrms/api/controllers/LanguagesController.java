@@ -33,12 +33,12 @@ public class LanguagesController {
 		return this.languageService.add(language);
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<Language>> getAll(){	
 		return this.languageService.getAll();
 	}
 	
-	@GetMapping("/getallByJobSeekerId")
+	@GetMapping("/getAllByJobSeekerId")
 	public DataResult<List<Language>> getAllByJobSeekerId(@RequestParam int jobSeekerId){	
 		return this.languageService.getAllByJobSeekerId(jobSeekerId);
 	}

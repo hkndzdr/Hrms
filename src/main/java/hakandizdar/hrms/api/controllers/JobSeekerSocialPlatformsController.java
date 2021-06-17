@@ -33,12 +33,12 @@ public class JobSeekerSocialPlatformsController {
 		return this.jobSeekerSocialPlatformService.add(jobSeekerSkillSocialPlatform);
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<JobSeekerSocialPlatform>> getAll(){	
 		return this.jobSeekerSocialPlatformService.getAll();
 	}
 	
-	@GetMapping("/getallByJobSeekerId")
+	@GetMapping("/getAllByJobSeekerId")
 	public DataResult<List<JobSeekerSocialPlatform>> getAllByJobSeekerId(@RequestParam int jobSeekerId){	
 		return this.jobSeekerSocialPlatformService.getAllByJobSeekerId(jobSeekerId);
 	}

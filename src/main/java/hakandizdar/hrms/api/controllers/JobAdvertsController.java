@@ -6,14 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hakandizdar.hrms.business.abstracts.JobAdvertService;
 import hakandizdar.hrms.core.utilities.results.DataResult;
 import hakandizdar.hrms.core.utilities.results.Result;
 import hakandizdar.hrms.entities.concretes.JobAdvert;
+import hakandizdar.hrms.entities.dtos.JobAdvertDto;
 
 @RestController
 @RequestMapping("/api/jobadverts")
@@ -23,38 +26,51 @@ public class JobAdvertsController {
 
 	@Autowired
 	public JobAdvertsController(JobAdvertService jobAdvertService) {
-		super();
 		this.jobAdvertService = jobAdvertService;
 	}
 	
+	@GetMapping("/getAll")
+	DataResult<List<JobAdvert>> getAll() {
+		return this.jobAdvertService.getAll();
+	}
+	
+	@GetMapping("/getAllSorted")
+	DataResult<List<JobAdvert>> getAllSorted() {
+		return this.jobAdvertService.getAllSorted();
+	}
+	
+	@PostMapping("/getAllByCompanyName")
+	DataResult<List<JobAdvert>> getAllByCompanyName(@RequestParam String companyName) {
+		return this.jobAdvertService.getAllByCompanyName(companyName);
+	}
+	
+	@GetMapping("/getAllByCompanyId")
+	DataResult<List<JobAdvert>> getAllByCompanyId(@RequestParam int id) {
+		return this.jobAdvertService.getAllByCompanyId(id);
+	}
+	
+	@PutMapping("/activate")
+	Result activate(@RequestParam("id") int id, @RequestParam("isActive") boolean status) {
+		return this.jobAdvertService.activate(id, status);
+	}
+	
 	@PostMapping("/add")
-	public Result add(@RequestBody JobAdvert jobAdvert) {
-		return this.jobAdvertService.add(jobAdvert);
+	Result add(@RequestBody JobAdvertDto jobAdvertDto) {
+		return this.jobAdvertService.add(jobAdvertDto);
 	}
 	
-	@GetMapping("/getAllActiveAdverts")
-	public DataResult<List<JobAdvert>> getAllActiveAdverts() {
-		return this.jobAdvertService.getAllActiveAdverts();
+	@GetMapping("/getAllPassiveJobs")
+	public DataResult<List<JobAdvert>> getAllByIsActiveFalse() {
+		return this.jobAdvertService.getAllByIsActiveFalse();
 	}
 	
-	@GetMapping("/getAllActiveAdvertsByReleasedDateByAsc")
-	public DataResult<List<JobAdvert>> getAllActiveAdvertsByReleasedDateByAsc() {
-		return this.jobAdvertService.getAllActiveAdvertsByReleasedDateByAsc();
+	@GetMapping("/getById")
+	public DataResult<JobAdvert> getById(@RequestParam int id) {
+		return this.jobAdvertService.getById(id);
 	}
 	
-	@GetMapping("/getAllActiveAdvertsByReleasedDateByDesc")
-	public DataResult<List<JobAdvert>> getAllActiveAdvertsByReleasedDateByDesc() {
-		return this.jobAdvertService.getAllActiveAdvertsByReleasedDateByDesc();
+	@PostMapping("/delete")
+	public Result delete(@RequestBody JobAdvert jobAdvert) {
+		return this.jobAdvertService.delete(jobAdvert);
 	}
-	
-	@GetMapping("/getAllActiveAdvertsByEmployer")
-	public DataResult<List<JobAdvert>> getAllActiveAdvertsByEmployer(int employerId) {
-		return this.jobAdvertService.getAllActiveAdvertsByEmployer(employerId);
-	}
-	
-	@PostMapping("/changeActiveStatus")
-	public Result closeAdvert(int id) {
-		return this.jobAdvertService.changeActiveStatus(id);
-	}
-	
 }

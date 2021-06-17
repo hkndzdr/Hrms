@@ -1,7 +1,6 @@
 package hakandizdar.hrms.entities.concretes;
 
 import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "job_adverts")
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvert"})
 public class JobAdvert {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +48,7 @@ public class JobAdvert {
 	
 	@Column(name = "is_active")
 	private boolean isActive;
-	
+
 	@ManyToOne()
 	@JoinColumn(name = "job_position_id")
 	private JobPosition jobPosition;
@@ -59,5 +61,11 @@ public class JobAdvert {
 	@JoinColumn(name = "employer_id")
 	private Employer employer;
 	
-	
+	@ManyToOne()
+	@JoinColumn(name = "workplace_id")
+	private Workplace workplace;
+
+	@ManyToOne()
+	@JoinColumn(name = "work_schedule_id")
+	private WorkSchedule workSchedule;
 }

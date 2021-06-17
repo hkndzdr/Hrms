@@ -8,38 +8,37 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import hakandizdar.hrms.business.abstracts.EmployerService;
+import hakandizdar.hrms.business.abstracts.WorkplaceService;
 import hakandizdar.hrms.core.utilities.results.DataResult;
 import hakandizdar.hrms.core.utilities.results.Result;
-import hakandizdar.hrms.entities.concretes.Employer;
+import hakandizdar.hrms.entities.concretes.Workplace;
 
 @RestController
-@RequestMapping("/api/employers")
+@RequestMapping("/api/workplaces")
 @CrossOrigin
-public class EmployersController {
+public class WorkplacesController {
 	
-	private EmployerService employerService;
+	private WorkplaceService workplaceService;
 
 	@Autowired
-	public EmployersController(EmployerService employerService) {
-		super();
-		this.employerService = employerService;
+	public WorkplacesController(WorkplaceService workplaceService) {
+		this.workplaceService = workplaceService;
 	}
 	
+	
 	@PostMapping("/add")
-	public Result add(@RequestBody Employer employer) {
-		return this.employerService.add(employer);
+	public Result add(@RequestBody Workplace workplace) {
+		return this.workplaceService.add(workplace);
 	}
 	
 	@GetMapping("/getAll")
-	public DataResult<List<Employer>> getAll(){
-		return this.employerService.getAll();
+	public DataResult<List<Workplace>> getAll() {
+		return this.workplaceService.getAll();
 	}
 	
 	@GetMapping("/getById")
-	public DataResult<Employer> getById(@RequestParam int id){
-		return this.employerService.getById(id);
+	public DataResult<Workplace> getById(int id) {
+		return this.workplaceService.getById(id);
 	}
 }

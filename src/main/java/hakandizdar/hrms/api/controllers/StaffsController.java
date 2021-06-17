@@ -32,7 +32,7 @@ import hakandizdar.hrms.entities.concretes.Staff;
 			return this.staffService.add(staff);
 		}
 		
-		@GetMapping("/getall")
+		@GetMapping("/getAll")
 		public DataResult<List<Staff>> getAll(){	
 			return this.staffService.getAll();
 		}

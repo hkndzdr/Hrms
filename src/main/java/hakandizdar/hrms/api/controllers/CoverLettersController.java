@@ -34,12 +34,12 @@ public class CoverLettersController {
 		return this.coverLetterService.add(coverLetter);
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<CoverLetter>> getAll(){	
 		return this.coverLetterService.getAll();
 	}
 	
-	@GetMapping("/getallByJobSeekerId")
+	@GetMapping("/getAllByJobSeekerId")
 	public DataResult<List<CoverLetter>> getAllByJobSeekerId(@RequestParam int id){	
 		return this.coverLetterService.getAllByJobSeekerId(id);
 	}

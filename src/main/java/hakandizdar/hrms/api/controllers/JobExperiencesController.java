@@ -35,12 +35,12 @@ public class JobExperiencesController {
 		return this.jobExperienceService.add(jobExperince);
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<JobExperience>> getAll(){	
 		return this.jobExperienceService.getAll();
 	}
 	
-	@GetMapping("/getallByJobSeekerIdOrderByLeaveYearDesc")
+	@GetMapping("/getAllByJobSeekerIdOrderByLeaveYearDesc")
 	public DataResult<List<JobExperience>> getAllByJobSeekerIdOrderByGraduationYearDesc(@RequestParam int jobSeekerId){	
 		return this.jobExperienceService.getAllByJobSeekerIdOrderByLeaveYearDesc(jobSeekerId);
 	}

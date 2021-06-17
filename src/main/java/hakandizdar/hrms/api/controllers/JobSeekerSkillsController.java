@@ -34,12 +34,12 @@ public class JobSeekerSkillsController {
 		return this.jobSeekerSkillService.add(jobSeekerSkill);
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<JobSeekerSkill>> getAll(){	
 		return this.jobSeekerSkillService.getAll();
 	}
 	
-	@GetMapping("/getallByJobSeekerId")
+	@GetMapping("/getAllByJobSeekerId")
 	public DataResult<List<JobSeekerSkill>> getAllByJobSeekerId(@RequestParam int jobSeekerId){	
 		return this.jobSeekerSkillService.getAllByJobSeekerId(jobSeekerId);
 	}

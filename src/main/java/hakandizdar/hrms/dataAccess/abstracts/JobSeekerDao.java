@@ -6,4 +6,5 @@ import hakandizdar.hrms.entities.concretes.JobSeeker;
 
 public interface JobSeekerDao extends JpaRepository<JobSeeker, Integer> {
 	JobSeeker getByNationality(String nationality);
+	JobSeeker getByEmail(String email);
 }

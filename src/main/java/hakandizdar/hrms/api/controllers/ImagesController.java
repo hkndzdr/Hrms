@@ -40,12 +40,12 @@ public class ImagesController {
 		return ResponseEntity.ok(this.imageService.add(image, file));
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<Image>> getAll(){	
 		return this.imageService.getAll();
 	}
 	
-	@GetMapping("/getallByJobSeekerId")
+	@GetMapping("/getAllByJobSeekerId")
 	public DataResult<List<Image>> getAllByJobSeekerId(@RequestParam int id){	
 		return this.imageService.getAllByJobSeekerId(id);
 	}

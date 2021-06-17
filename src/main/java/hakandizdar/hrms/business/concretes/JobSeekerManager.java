@@ -42,6 +42,12 @@ public class JobSeekerManager implements JobSeekerService{
 	}
 
 	@Override
+	public DataResult<JobSeeker> getByEmail(String email) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByEmail(email));
+	}
+	
+	
+	@Override
 	public DataResult<JobSeeker> getById(int jobSeekerId) {
 		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.findById(jobSeekerId).get());
 	}
@@ -60,8 +66,5 @@ public class JobSeekerManager implements JobSeekerService{
 		jobSeekerCvDto.setCoverLetters(jobSeeker.getCoverLetters());
 		return new SuccessDataResult<JobSeekerCvDto>(jobSeekerCvDto);
 	}
-	
-	
-	
 
 }
